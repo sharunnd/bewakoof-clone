@@ -1,4 +1,4 @@
-import { Box,Button,Flex,FormControl,IconButton,Image, Input } from "@chakra-ui/react";
+import { Box,Button,Divider,Flex,FormControl,IconButton,Image, Input } from "@chakra-ui/react";
 import { SearchIcon } from '@chakra-ui/icons'
 import { BsBag } from 'react-icons/bs';
 import { AiOutlineUser,AiOutlineHeart } from "react-icons/ai";
@@ -39,6 +39,7 @@ function Navbar() {
             <Input placeholder='Search by products'  w={250} p="auto"/>
             </FormControl>
             </Box>
+            <Divider orientation='vertical' ml={5} />
             </Flex>
             <Box ml={50}>
             <NavLink to=""><IconButton bg="white" fontSize='25px' icon={<AiOutlineUser />}/></NavLink>
