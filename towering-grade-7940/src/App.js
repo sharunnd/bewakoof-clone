@@ -4,6 +4,7 @@ import { Navbar } from './routes/Navbar';
 import { AllRoutes } from './routes/AllRoutes';
 import { Navbar2 } from './routes/Navbar2';
 import { Box } from '@chakra-ui/react';
+import { Footer } from './routes/Footer';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Navbar2 />
       <AllRoutes />
+      <Footer />
     </Box>
   );
 }
