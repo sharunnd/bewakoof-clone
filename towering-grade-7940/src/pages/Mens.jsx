@@ -214,7 +214,7 @@ function Men(){
                         </h2>
                         <AccordionPanel  >
                            <Stack>
-                               <Checkbox size="sm">T-shirt</Checkbox>
+                               <Checkbox size="sm">shirt</Checkbox>
                                <Checkbox size="sm">Jeans</Checkbox>
                             </Stack>
                         </AccordionPanel>
