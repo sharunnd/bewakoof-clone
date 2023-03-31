@@ -1,27 +1,50 @@
-import {Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box,Breadcrumb,BreadcrumbItem,BreadcrumbLink,Checkbox,Divider,Flex,Grid,GridItem,Heading,HStack,SimpleGrid,Spacer,Stack,Text, textDecoration, VStack} from "@chakra-ui/react"
-import { useEffect, useReducer } from "react"
+import {Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box,Breadcrumb,BreadcrumbItem,BreadcrumbLink,Button,Checkbox,Divider,Flex,Grid,GridItem,Heading,HStack,SimpleGrid,Spacer,Stack,Text, textDecoration, VStack} from "@chakra-ui/react"
+import { useEffect, useReducer, useState } from "react"
 import { reducer } from "../men_components/reducer"
-import { Link } from "react-router-dom"
+import { Link, useParams, useSearchParams } from "react-router-dom"
 import { getData } from "../api/api"
 import { MenProductCard } from "../men_components/MenProductCard"
-
-
+import Pagination from "../men_components/Pagination"
+import { reducer2,initState } from "../men_components/reducer"
+import { Navbar } from "../routes/Navbar"
 const initialState={
     loading:false,
     error:false,
     data:[]
 }
+
 function Men(){
+    // const [searchState,dispatch2] = useReducer(reducer2,initState)
+
     const [state,dispatch] = useReducer(reducer,initialState)
-
+    const [searchParams, setSearchParams] = useSearchParams()
+    const initPage = Number(searchParams.get("page"))
+    const {params} = useParams()
+    const [page,setPage] = useState(initPage || 1)
+    const [order,setOrder] = useState([])
+    const [category,setCategory] = useState([])
+ 
     useEffect(()=>{
-        fetchAndRenderData()
-    },[])
+        fetchAndRenderData(page)
+    },[page,order,category])
 
-    const fetchAndRenderData=async()=>{
+    useEffect(() => {
+        setSearchParams({ page: page});
+      }, [page]);
+
+ 
+    const fetchAndRenderData=async(page)=>{
+        let obj = {_page:page,_limit:9};
+        if(order){
+            obj._sort="price"
+            obj._order=order
+        }
+        if(category){
+            obj.category=category
+        }
         try {
             dispatch({type:"LOADING"})
-           let res = await getData() 
+           let res = await getData(obj,"mens") 
            dispatch({type:"DATA_REQUEST_SUCCESS",payload:res.data})
 
         //    console.log(res)
@@ -29,6 +52,26 @@ function Men(){
             dispatch({type:"DATA_REQUEST_ERROR"})
         }
     }
+    const handlePage=(pageNum)=>{
+        setPage(page+pageNum)
+    }
+        console.log("che",order)
+
+    const handleSortDesc=(e)=>{
+        // setisCheckedSort(e.target.checked)
+        setOrder(e.target.checked ? "desc" : [])
+        // console.log(order)
+    }
+    const handleSortAsc=(e)=>{
+        // setisCheckedSort()
+        setOrder(e.target.checked ? "asc" : [])
+    }
+  // const {searchitems} = useContext(AppContext) 
+
+
+  // useeffect(()=>{
+ //   if(searchItems){ setSearchParams({q:searchItems})} and call the api and pass the params in an  obj {}
+      // })
     return (
         <Box>
             <Box>
@@ -63,11 +106,9 @@ function Men(){
                         </h2>
                         <AccordionPanel textAlign="left">
                             <Stack>
-                               <Checkbox size="sm">T-shirt</Checkbox>
-                               <Checkbox size="sm">Jeans</Checkbox>
-                               <Checkbox size="sm">Shirt</Checkbox>
-                               <Checkbox size="sm">Shorts</Checkbox>
-                               <Checkbox size="sm">Jacket</Checkbox>
+                               <Checkbox size="sm" onChange={(e)=>setCategory(e.target.checked ? "jeans" : [])}>Jeans</Checkbox>
+                               <Checkbox size="sm" onChange={(e)=>setCategory(e.target.checked ? "shirt" : [])}>Shirt</Checkbox>
+                               <Checkbox size="sm" onChange={(e)=>setCategory(e.target.checked ? "t-shirt" : [])}>T-Shirt</Checkbox>
                             </Stack>
                         </AccordionPanel>
                     </AccordionItem>
@@ -83,8 +124,8 @@ function Men(){
                         <AccordionPanel textAlign="left">
                             <Stack>
                                <Checkbox size="sm">New</Checkbox>
-                               <Checkbox size="sm">Price: High to Low</Checkbox>
-                               <Checkbox size="sm">Price: Low to High</Checkbox>
+                               <Checkbox  size="sm" onChange={handleSortDesc}>Price: High to Low</Checkbox>
+                               <Checkbox  size="sm" onChange={handleSortAsc}>Price: Low to High</Checkbox>
                             </Stack>
                         </AccordionPanel>
                     </AccordionItem>
@@ -266,6 +307,9 @@ function Men(){
                 </Grid>
               </Box>
             </Flex>
+            <Box>
+                <Pagination handlePage={handlePage} currentPage={page}/>
+            </Box>
         </Box>
     )
 }

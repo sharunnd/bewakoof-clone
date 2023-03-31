@@ -1,25 +1,45 @@
-import { Box,Text,Image, GridItem, Button, Flex, Spacer, IconButton } from "@chakra-ui/react";
+import { Box,Text,Image, GridItem, Button, Flex, Spacer, IconButton, HStack } from "@chakra-ui/react";
 import { useState } from "react";
-import {AiFillHeart,AiOutlineHeart} from "react-icons/ai"
+import {AiFillHeart,AiOutlineHeart,AiOutlineTrademarkCircle} from "react-icons/ai"
+import { Icon } from "@chakra-ui/react";
+import axios from "axios";
+import { cartData } from "../api/api";
 
-function MenProductCard({price,title,img}){
+
+function MenProductCard({id,price,title,img}){
+    const [cartItems,setCart] = useState()
     const [toggleHeart,setToggleHeart] = useState(false)
-    const handleAddCart=()=>{
-        setToggleHeart(false)
+
+
+    function cartData (){
+      let cart = {id,price,title,img};
+      axios.post("https://busy-tan-sockeye-hem.cyclic.app/cart",cart).then(()=>{
+        // getData from cart and display in UI
+      })
     }
+    
+    const handleAddCart=async()=>{
+        setToggleHeart(false)
+        cartData()
+    }
+   
+    
     const handleRemoveCartItem=()=>{
         setToggleHeart(true)
+        
     }
+
+ 
     return (
         <GridItem>
            <Image src={img} alt="image broken"/>
-           <Text>Colorway</Text> 
+             <Text>Colorway<Icon as={AiOutlineTrademarkCircle} boxSize={3} /></Text>             
            <Flex>
-           <Text>{title}</Text>
+             <Text fontSize='13px'>{title}</Text>
            <Spacer/>
            {
-            toggleHeart ? <IconButton onClick={handleAddCart} _hover={{bg:"white"}} color="red"bg="white"  fontSize='25px' icon={<AiFillHeart />}/> :
-            <IconButton onClick={handleRemoveCartItem} _hover={{bg:"white"}} bg="white" fontSize='25px' icon={<AiOutlineHeart />}/>
+            toggleHeart ? <IconButton onClick={handleAddCart} _hover={{bg:"white"}} color="red"bg="white"  fontSize='20px' icon={<AiFillHeart />}/> :
+            <IconButton onClick={handleRemoveCartItem} _hover={{bg:"white"}} bg="white" fontSize='20px' icon={<AiOutlineHeart />}/>
            }
            
            </Flex>
@@ -28,5 +48,4 @@ function MenProductCard({price,title,img}){
         </GridItem>
     )
 }
-
 export {MenProductCard}

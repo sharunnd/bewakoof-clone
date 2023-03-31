@@ -4,6 +4,9 @@ import { BsBag } from 'react-icons/bs';
 import { AiOutlineUser,AiOutlineHeart } from "react-icons/ai";
 import {NavLink} from "react-router-dom"
 import logo  from "../logo/colorway-logo-1.png";
+import { useReducer, useState } from "react";
+import { reducer2,initState } from "../men_components/reducer";
+
 const links = [
     
     {path:"/",text:<Image ml={150}  w={120} src={logo} alt='Dan Abramov' />},
@@ -14,7 +17,16 @@ const links = [
 ];
 
 function Navbar() {
-  
+    // const {setSearchItems} = useContext(AppContext) 
+    const [searchItem,setSearchItem] = useState("") // put this in AppConteXt
+    const [searchState,dispatch2] = useReducer(reducer2,initState)
+    const {searchInput} = searchState
+  const handleSearch=(e)=>{
+    e.preventDefault()
+    setSearchItem(e.target.value)
+  }
+
+  console.log(searchInput)
     return(
         <Box className = "navbar2" border="1px solid black" >
             <Flex>
@@ -29,14 +41,10 @@ function Navbar() {
             }
             <Flex>
             <Box ml={100}>
-            
-    
-            
-            
-            
+        
             <FormControl>
-            <IconButton icon={<SearchIcon />} />
-            <Input placeholder='Search by products'  w={250} p="auto"/>
+            <IconButton onClick={handleSearch} icon={<SearchIcon />} />
+            <Input placeholder='Search by products'  w={250} p="auto" onChange={(e)=>dispatch2({type:"SEARCH_INPUT",payload:e.target.value})}/>
             </FormControl>
             </Box>
             <Divider orientation='vertical' ml={5} />
