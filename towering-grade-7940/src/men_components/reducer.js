@@ -19,7 +19,7 @@ const reducer=(state,action)=>{
                 data:action.payload
             }
         }
-        case "":{
+        case "DATA_REQUEST_ERROR":{
             return {
                 loading:false,
                 error:true,
@@ -31,5 +31,21 @@ const reducer=(state,action)=>{
         }
     }
 }
+const initState={
+    searchInput:""
+}
+const reducer2=(searchState,action)=>{
+    switch(action.type){
+        case "SEARCH_INPUT":{
+            return{
+                searchInput:action.payload 
+            }
+        }
+        default :{
+            throw new Error(`action type invalid ${action.type}`)
+        }
+    }
+}
 
 export {reducer}
+export {reducer2,initState}
