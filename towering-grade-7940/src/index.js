@@ -6,12 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import {ChakraProvider} from "@chakra-ui/react"
 import {BrowserRouter} from "react-router-dom"
 import { customTheme } from './theme/theme';
+import AuthContextProvider from './contex/AuthContestProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ChakraProvider theme={customTheme}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <AuthContextProvider>
+        <BrowserRouter>
+           <App />
+        </BrowserRouter>
+    </AuthContextProvider>
   </ChakraProvider>
 );
 

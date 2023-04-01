@@ -2,14 +2,8 @@ import img1 from "../homePageImages/img-1.jpg"
 import img2 from "../homePageImages/home-2.webp"
 import img3 from "../homePageImages/home-3.jpg"
 import img4 from "../homePageImages/img-section-2.webp"
-import img5 from "../homePageImages/designs-o-t-week.webp"
-import img6 from "../homePageImages/d-o-t-week-2.webp"
-import { AiOutlineFacebook,AiOutlineInstagram,AiOutlineApple } from "react-icons/ai";
-import {Box,SimpleGrid,Text,Image, Heading, IconButton, VStack, HStack, Center, Spacer, Input, Button, FormControl} from "@chakra-ui/react"
-import { BsSnapchat,BsPinterest } from "react-icons/bs";
-import { CiTwitter } from "react-icons/ci";
-import img7 from "../footer-images/google-store.png"
-import img8 from "../footer-images/apple-store.png"
+import {Box,SimpleGrid,Text,Image} from "@chakra-ui/react"
+
 
 function Home(){
     return (

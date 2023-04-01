@@ -1,4 +1,4 @@
-import {Box,Text} from "@chakra-ui/react"
+
 import axios from "axios"
 
 
@@ -9,10 +9,21 @@ function getData(obj){
     })
 }
 
+function getCartData(){
+    
+    return axios.get(`https://busy-tan-sockeye-hem.cyclic.app/cart`)
+}
 
+
+const deleteWishlistItem=(id)=>{
+   
+    return axios.delete(`https://busy-tan-sockeye-hem.cyclic.app/cart/${id}`)
+        
+ }
 
 export {getData}
-
+export {getCartData}
+export {deleteWishlistItem}
 
 // {
 //     _page:params.page,

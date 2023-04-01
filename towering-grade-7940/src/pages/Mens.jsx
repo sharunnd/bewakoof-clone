@@ -1,12 +1,14 @@
-import {Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box,Breadcrumb,BreadcrumbItem,BreadcrumbLink,Button,Checkbox,Divider,Flex,Grid,GridItem,Heading,HStack,SimpleGrid,Spacer,Stack,Text, textDecoration, VStack} from "@chakra-ui/react"
-import { useEffect, useReducer, useState } from "react"
+import {Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box,Breadcrumb,BreadcrumbItem,BreadcrumbLink,Checkbox,Divider,Flex,Grid,Heading,HStack,Stack,Text} from "@chakra-ui/react"
+import { useContext, useEffect, useReducer, useState } from "react"
 import { reducer } from "../men_components/reducer"
-import { Link, useParams, useSearchParams } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { getData } from "../api/api"
 import { MenProductCard } from "../men_components/MenProductCard"
 import Pagination from "../men_components/Pagination"
-import { reducer2,initState } from "../men_components/reducer"
-import { Navbar } from "../routes/Navbar"
+import { SpinnerIcon } from "@chakra-ui/icons"
+import { AuthContext } from "../contex/AuthContestProvider"
+
+
 const initialState={
     loading:false,
     error:false,
@@ -14,19 +16,18 @@ const initialState={
 }
 
 function Men(){
-    // const [searchState,dispatch2] = useReducer(reducer2,initState)
 
+    const {searchItem} = useContext(AuthContext)
     const [state,dispatch] = useReducer(reducer,initialState)
     const [searchParams, setSearchParams] = useSearchParams()
     const initPage = Number(searchParams.get("page"))
-    const {params} = useParams()
     const [page,setPage] = useState(initPage || 1)
     const [order,setOrder] = useState([])
     const [category,setCategory] = useState([])
  
     useEffect(()=>{
         fetchAndRenderData(page)
-    },[page,order,category])
+    },[page,order,category,searchItem])
 
     useEffect(() => {
         setSearchParams({ page: page});
@@ -42,6 +43,9 @@ function Men(){
         if(category){
             obj.category=category
         }
+        if(searchItem){
+            obj.q=searchItem
+        }
         try {
             dispatch({type:"LOADING"})
            let res = await getData(obj,"mens") 
@@ -55,26 +59,29 @@ function Men(){
     const handlePage=(pageNum)=>{
         setPage(page+pageNum)
     }
-        console.log("che",order)
+      
 
     const handleSortDesc=(e)=>{
-        // setisCheckedSort(e.target.checked)
+        
         setOrder(e.target.checked ? "desc" : [])
-        // console.log(order)
+       
     }
     const handleSortAsc=(e)=>{
-        // setisCheckedSort()
+        
         setOrder(e.target.checked ? "asc" : [])
     }
-  // const {searchitems} = useContext(AppContext) 
+//   const {searchitems} = useContext(AuthContext) 
 
 
   // useeffect(()=>{
  //   if(searchItems){ setSearchParams({q:searchItems})} and call the api and pass the params in an  obj {}
       // })
+      const {data,loading,error} = state
+      console.log(searchItem)
+
     return (
         <Box>
-            <Box>
+            <Box ml={110} mt={5} fontSize={12}>
             <Breadcrumb separator='/'>
                <BreadcrumbItem>
                      <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
@@ -86,7 +93,7 @@ function Men(){
             </Breadcrumb>
             </Box>
             
-            <Flex mt={20}>
+            <Flex mt={10}>
                 <Box ml={100}>
                 <HStack>
                 <Heading fontSize={24} textAlign="left" >Men Clothing</Heading>
@@ -106,7 +113,7 @@ function Men(){
                         </h2>
                         <AccordionPanel textAlign="left">
                             <Stack>
-                               <Checkbox size="sm" onChange={(e)=>setCategory(e.target.checked ? "jeans" : [])}>Jeans</Checkbox>
+                               <Checkbox defaultChecked={category.includes("jeans")} size="sm" onChange={(e)=>setCategory(e.target.checked ? "jeans" : [])}>Jeans</Checkbox>
                                <Checkbox size="sm" onChange={(e)=>setCategory(e.target.checked ? "shirt" : [])}>Shirt</Checkbox>
                                <Checkbox size="sm" onChange={(e)=>setCategory(e.target.checked ? "t-shirt" : [])}>T-Shirt</Checkbox>
                             </Stack>
@@ -298,8 +305,8 @@ function Men(){
                 <Box mr={150} textAlign="left" mt={20}>
                 <Grid templateColumns='repeat(3, 1fr)' gap={6}>
                     
-                   {
-                   state?.data.map((item)=>(
+                   {loading ? <SpinnerIcon ml={300} fontSize={40}/> : error ? <Text>Something went wrong</Text> :
+                  data?.map((item)=>(
                     <MenProductCard key={item.key} {...item}/>
                    ))
                    }

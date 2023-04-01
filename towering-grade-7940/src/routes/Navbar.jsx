@@ -1,15 +1,18 @@
-import { Box,Button,Divider,Flex,FormControl,IconButton,Image, Input } from "@chakra-ui/react";
+import { Box,Divider,Flex,FormControl,HStack,IconButton,
+    Image, Input, InputGroup, InputLeftElement, Popover, PopoverBody, PopoverContent, 
+    PopoverTrigger } from "@chakra-ui/react";
 import { SearchIcon } from '@chakra-ui/icons'
 import { BsBag } from 'react-icons/bs';
 import { AiOutlineUser,AiOutlineHeart } from "react-icons/ai";
 import {NavLink} from "react-router-dom"
 import logo  from "../logo/colorway-logo-1.png";
-import { useReducer, useState } from "react";
-import { reducer2,initState } from "../men_components/reducer";
+import { useContext, useState } from "react";
+
+import { AuthContext } from "../contex/AuthContestProvider";
 
 const links = [
     
-    {path:"/",text:<Image ml={150}  w={120} src={logo} alt='Dan Abramov' />},
+    {path:"/",text:<Image ml={120}  w={120} src={logo} alt='Dan Abramov' />},
     {path:"/men",text:"MEN"},
     {path:"/women",text:"WOWEN"},
     {path:"/mobile-covers",text:"MOBILE COVERS"}
@@ -17,23 +20,21 @@ const links = [
 ];
 
 function Navbar() {
-    // const {setSearchItems} = useContext(AppContext) 
-    const [searchItem,setSearchItem] = useState("") // put this in AppConteXt
-    const [searchState,dispatch2] = useReducer(reducer2,initState)
-    const {searchInput} = searchState
+    const {searchItem,setSearchItem} = useContext(AuthContext)
+    const [query,setQuery] = useState("") 
+
   const handleSearch=(e)=>{
     e.preventDefault()
-    setSearchItem(e.target.value)
+    setSearchItem(query)
   }
 
-  console.log(searchInput)
     return(
-        <Box className = "navbar2" border="1px solid black" >
+        <Box className = "navbar2" borderBottom="1px solid gray" >
             <Flex>
-             {/* <HStack>   */}
+   
             {
                 links.map((link)=>(
-                    <Box border="1px solid black" ml={50}>
+                    <Box pt={2} ml={50}>
                        <NavLink key={link.path} to={link.path}>{link.text}</NavLink>
                     </Box>
 
@@ -43,16 +44,28 @@ function Navbar() {
             <Box ml={100}>
         
             <FormControl>
-            <IconButton onClick={handleSearch} icon={<SearchIcon />} />
-            <Input placeholder='Search by products'  w={250} p="auto" onChange={(e)=>dispatch2({type:"SEARCH_INPUT",payload:e.target.value})}/>
+               <InputGroup bg="gray.100">
+               <InputLeftElement children={<IconButton icon={<SearchIcon />} />}/>
+               <Input placeholder='Search by products'  w={250} p="auto" onChange={(e)=>setQuery(e.target.value)}/>
+               </InputGroup> 
             </FormControl>
             </Box>
-            <Divider orientation='vertical' ml={5} />
+              <Divider orientation='vertical' ml={5} />
             </Flex>
-            <Box ml={50}>
-            <NavLink to=""><IconButton bg="white" fontSize='25px' icon={<AiOutlineUser />}/></NavLink>
-            <NavLink to="/wishlist"><IconButton bg="white" fontSize='25px' icon={<AiOutlineHeart />}/></NavLink>
-            <NavLink to="/bag"><IconButton bg="white" fontSize='20px' icon={<BsBag />}/></NavLink>
+               <Box ml={50}>
+            <Popover trigger="hover">
+              <PopoverTrigger w='30px'>
+                <IconButton bg="white" fontSize='25px' icon={<AiOutlineUser />}/>
+
+                </PopoverTrigger>
+                <PopoverContent w={100} bg='white' color='black'>    
+                <PopoverBody>
+                   <NavLink to="/login">LOGIN</NavLink>
+                </PopoverBody>
+                </PopoverContent>
+            </Popover>
+              <NavLink to="/wishlist"><IconButton bg="white" fontSize='25px' icon={<AiOutlineHeart />}/></NavLink>
+              <NavLink to="/bag"><IconButton bg="white" fontSize='20px' icon={<BsBag />}/></NavLink>
 
             </Box>
            
