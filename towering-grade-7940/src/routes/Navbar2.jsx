@@ -1,26 +1,29 @@
-import { Box,Flex,Image } from "@chakra-ui/react";
+import { Box,Center,Flex,Text } from "@chakra-ui/react";
 import {NavLink} from "react-router-dom"
-import logo  from "../logo/colorway-logo-1.png";
 const links = [
 
-    {path:"/men",text:"Men"},
-    {path:"/women",text:"Women"},
-    {path:"/mobile-covers",text:"Mobile Covers"}
+    {path:"/men",text:"MEN"},
+    {path:"/women",text:"WOMEN"},
+    {path:"/mobile-covers",text:"MOBILE COVERS"},
+    {path:"#",text:"ACCESSORIES"},
+    {path:"#",text:"LIVE NOW!"},
+    {path:"#",text:"TEENS"}
+
 
 ];
 
 function Navbar2() {
   
     return(
-        <Box className = "navbar" border="1px solid black" >
+        <Center className = "navbar" borderBottom="1px solid gray" >
             <Flex>
             {
                 links.map((link)=>(
-                    <NavLink key={link.path} to={link.path}>{link.text}</NavLink>
+                   <Text ml={5} p={2} fontSize={16}><NavLink key={link.path} to={link.path}>{link.text}</NavLink></Text> 
                 ))
             }
             </Flex>
-        </Box>
+        </Center>
     )
 }
 

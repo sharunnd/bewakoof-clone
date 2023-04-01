@@ -9,7 +9,7 @@ import img8 from "../footer-images/apple-store.png"
 function Footer(){
     return (
         <Box bg="black" color="white">
-        <Heading color="yellow.400" textAlign="left" ml={120} mt={50}>Colorway</Heading>
+        <Heading color="yellow.400" textAlign="left" ml={90} mt={50}>Colorway</Heading>
 
          <Center>
           <SimpleGrid columns={4} textAlign="left" mt={50}>

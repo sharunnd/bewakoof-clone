@@ -8,7 +8,7 @@ export default function Pagination({handlePage,currentPage}){
     const handleClickNext=()=>{
         handlePage(+1)
     }
-    console.log(currentPage)
+
     return(
         <Box>
                 <Button isDisabled={currentPage===1} onClick={handleClickPrev}>Prev</Button>
