@@ -54,15 +54,15 @@ function Navbar() {
             </Box>
              
             </Flex>
-               <Box ml={{ base: '10px', md: '30px', lg: '50px' }}>
-            <Popover trigger="hover">
-              <PopoverTrigger w={{ base: '10px', md: '20px', lg: '30px' }}>
+               <Box ml={{ base: '10px', md: '30px', lg: '50px' }} zIndex="999" position="relative">
+            <Popover trigger="hover" isLazy={false}>
+              <PopoverTrigger  w={{ base: '10px', md: '20px', lg: '30px' }}>
                 <IconButton size={{ base: '5px', md: '10px', lg: '10px' }} bg="white" fontSize={{ base: '10px', md: '20px', lg: '20px' }} ml={{ base: '5px', md: '10px', lg: '10px' }} icon={<AiOutlineUser />}/>
 
                 </PopoverTrigger>
-                <PopoverContent w={{ base: '60px', md: '80px', lg: '100px' }} bg='white' color='black'>    
-                <PopoverBody>
-                   <NavLink to="/login">LOGIN</NavLink>
+                <PopoverContent zIndex="9999" placement="top-end" w={{ base: '60px', md: '80px', lg: '100px' }} bg='white' color='black' >    
+                <PopoverBody >
+                   <NavLink  to="/login">LOGIN</NavLink>
                 </PopoverBody>
                 </PopoverContent>
             </Popover>

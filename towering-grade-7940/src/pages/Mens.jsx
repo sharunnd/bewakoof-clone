@@ -70,17 +70,12 @@ function Men(){
         
         setOrder(e.target.checked ? "asc" : [])
     }
-//   const {searchitems} = useContext(AuthContext) 
 
-
-  // useeffect(()=>{
- //   if(searchItems){ setSearchParams({q:searchItems})} and call the api and pass the params in an  obj {}
-      // })
       const {data,loading,error} = state
       console.log(searchItem)
 
     return (
-        <Box>
+        <Box position="relative" top={20}>
             <Box ml={{ base: '10px', md: '15px', lg: '110px' }} mt={5} fontSize={12}>
             <Breadcrumb separator='/'>
                <BreadcrumbItem>
