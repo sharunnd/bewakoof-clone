@@ -81,7 +81,7 @@ function Men(){
 
     return (
         <Box>
-            <Box ml={110} mt={5} fontSize={12}>
+            <Box ml={{ base: '10px', md: '15px', lg: '110px' }} mt={5} fontSize={12}>
             <Breadcrumb separator='/'>
                <BreadcrumbItem>
                      <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
@@ -93,15 +93,15 @@ function Men(){
             </Breadcrumb>
             </Box>
             
-            <Flex mt={10}>
-                <Box ml={100}>
+            <Flex mt={{ base: '5px', md: '5px', lg: '10px' }}>
+                <Box ml={{ base: '10px', md: '15px', lg: '100px' }}>
                 <HStack>
-                <Heading fontSize={24} textAlign="left" >Men Clothing</Heading>
-                <Text fontWeight="light" fontSize={24} >({state.data.length})</Text>
+                <Heading fontSize={{ base: '15px', md: '15px', lg: '24px' }} textAlign="left" >Men Clothing</Heading>
+                <Text fontWeight="light" fontSize={{ base: '15px', md: '15px', lg: '24px' }} >({state.data.length})</Text>
                 </HStack>
                  <Divider ml={5}  mb={10} w={20} color="yellow.400" />
 
-                  <Accordion allowToggle w={350}>
+                  <Accordion allowToggle w={{ base: '150px', md: '150px', lg: '300px' }}>
                     <AccordionItem>
                         <h2>
                             <AccordionButton>
@@ -302,10 +302,10 @@ function Men(){
                   </Accordion>
                     
                 </Box>
-                <Box mr={150} textAlign="left" mt={20}>
-                <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+                <Box mr={{ base: '30px', md: '100px', lg: '150px' }} textAlign="left" mt={20}>
+                <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }} gap={6}>
                     
-                   {loading ? <SpinnerIcon ml={300} fontSize={40}/> : error ? <Text>Something went wrong</Text> :
+                   {loading ? <SpinnerIcon ml={{ base: '100px', md: '200px', lg: '300px' }} fontSize={{ base: '20px', md: '30px', lg: '40px' }}/> : error ? <Text>Something went wrong</Text> :
                   data?.map((item)=>(
                     <MenProductCard key={item.key} {...item}/>
                    ))

@@ -9,13 +9,13 @@ import img8 from "../footer-images/apple-store.png"
 function Footer(){
     return (
         <Box bg="black" color="white">
-        <Heading color="yellow.400" textAlign="left" ml={90} mt={50}>Colorway</Heading>
+        <Heading color="yellow.400" fontSize={{ base: '12px', md: '20px', lg: '36px' }} textAlign="left" ml={{ base: '10px', md: '15px', lg: '90px' }} mt={{ base: '10px', md: '25px', lg: '50px' }}>Colorway</Heading>
 
          <Center>
           <SimpleGrid columns={4} textAlign="left" mt={50}>
             
-            <Box>
-               <Text color="yellow.400" mb={5}>CUSTOMER SERVICE</Text>
+            <Box fontSize={{ base: '10px', md: '12px', lg: '16px' }}>
+               <Text color="yellow.400"  mb={5}>CUSTOMER SERVICE</Text>
                <Text>Contact us</Text>
                <Text>Track order</Text>
                <Text>Return order</Text>
@@ -26,7 +26,7 @@ function Footer(){
             </Box>
             </Box>
             {/* <Spacer></Spacer> */}
-            <Box w={300} >
+            <Box fontSize={{ base: '10px', md: '12px', lg: '16px' }} >
                <Text color="yellow.400" mb={5}>COMPANY</Text>
                <Text>About us</Text>
                <Text>We're Hiring</Text>
@@ -35,34 +35,34 @@ function Footer(){
                <Text>Blog</Text>
                <Box mt={15}>
                 <Text mb={5} color="yellow.400">DOWNLOAD THE APP</Text>   
-                <Image w={200} src={img7} alt="image link broken"/>
+                <Image w={{ base: '80px', md: '100px', lg: '200px' }} src={img7} alt="image link broken"/>
 
                </Box>
             </Box>
-            <Box>
+            <Box fontSize={{ base: '10px', md: '12px', lg: '16px' }}>
                <Text color="yellow.400" mb={5}>CONNECT WITH US</Text>
-            <Text><IconButton bg="black" fontSize='20px' icon={<AiOutlineFacebook />}/>4.7M People like this</Text>
-            <Text><IconButton bg="black" fontSize='20px' icon={<AiOutlineInstagram />}/>1M Followers</Text>
+            <Text><IconButton bg="black" size={{ base: '10px', md: '10px', lg: '20px' }} fontSize={{ base: '10px', md: '10px', lg: '20px' }} icon={<AiOutlineFacebook />}/>4.7M People like this</Text>
+            <Text><IconButton bg="black" size={{ base: '10px', md: '10px', lg: '20px' }} fontSize={{ base: '10px', md: '10px', lg: '20px' }} icon={<AiOutlineInstagram />}/>1M Followers</Text>
             <HStack>
-            <Text><IconButton bg="black" fontSize='20px' icon={<CiTwitter />}/></Text>
-            <Text><IconButton bg="black" fontSize='20px' icon={<BsPinterest />}/></Text>
-            <Text><IconButton bg="black" fontSize='20px' icon={<BsSnapchat />}/></Text>
-            <Text><IconButton bg="black" fontSize='20px' icon={<AiOutlineApple />}/></Text>
+            <Text><IconButton bg="black" size={{ base: '10px', md: '10px', lg: '20px' }} fontSize={{ base: '10px', md: '10px', lg: '20px' }} icon={<CiTwitter />}/></Text>
+            <Text><IconButton bg="black" size={{ base: '10px', md: '10px', lg: '20px' }} fontSize={{ base: '10px', md: '10px', lg: '20px' }} icon={<BsPinterest />}/></Text>
+            <Text><IconButton bg="black" size={{ base: '10px', md: '10px', lg: '20px' }} fontSize={{ base: '10px', md: '10px', lg: '20px' }} icon={<BsSnapchat />}/></Text>
+            <Text><IconButton bg="black" size={{ base: '10px', md: '10px', lg: '20px' }} fontSize={{ base: '10px', md: '10px', lg: '20px' }} icon={<AiOutlineApple />}/></Text>
            
             </HStack>
-            <Box mt={15}>
+            <Box mt={15} fontSize={{ base: '10px', md: '12px', lg: '16px' }}>
                  <Text mb={5} color="yellow.400">100% SECURE PAYMENT</Text>
-                 <Image src={img8} alt="image link broken"/>
+                 <Image w={{ base: '80px', md: '100px', lg: '270px' }} src={img8} alt="image link broken"/>
 
             </Box>
             </Box>
-            <Box>
+            <Box fontSize={{ base: '10px', md: '12px', lg: '16px' }}>
                <Text color="yellow.400" mb={5}>KEEP UP TO DATE</Text>
                
                   <FormControl>
                   <HStack>
-                     <Input borderRadius="none" placeholder="Enter Email ID" borderTop="none" borderLeft="none"/>
-                     <Button color="black" borderRadius="none" bg="yellow.400">Subscribe</Button>
+                     <Input size={{ base: 'xs', md: 'md', lg: 'lg' }} fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} borderRadius="none" placeholder="Enter Email ID" borderTop="none" borderLeft="none"/>
+                     <Button size={{ base: 'xs', md: 'md', lg: 'lg' }} fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} color="black" borderRadius="none" bg="yellow.400">Subscribe</Button>
                   </HStack>
                   </FormControl>
             </Box>

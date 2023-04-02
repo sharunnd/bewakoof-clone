@@ -19,7 +19,7 @@ function Navbar2() {
             <Flex>
             {
                 links.map((link)=>(
-                   <Text ml={5} p={2} fontSize={16}><NavLink key={link.path} to={link.path}>{link.text}</NavLink></Text> 
+                   <Text  p={2} ml={{ base: '10px', md: '20px', lg: '50px' }} fontSize={{ base: '10px', md: '12px', lg: '16px' }}><NavLink key={link.path} to={link.path}>{link.text}</NavLink></Text> 
                 ))
             }
             </Flex>
