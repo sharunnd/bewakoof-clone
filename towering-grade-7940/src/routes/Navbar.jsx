@@ -1,4 +1,4 @@
-import { Box,Divider,Flex,FormControl,HStack,IconButton,
+import { Box,Sticky,Flex,FormControl,HStack,IconButton,
     Image, Input, InputGroup, InputLeftElement, Popover, PopoverBody, PopoverContent, 
     PopoverTrigger } from "@chakra-ui/react";
 import { SearchIcon } from '@chakra-ui/icons'
@@ -29,8 +29,10 @@ function Navbar() {
 
   }
     return(
-        <Box className = "navbar2" borderBottom="1px solid gray" >
-            <Flex>
+      
+
+        <Box className = "navbar2"  w="100%" bg="white" borderBottom="1px solid gray" position="fixed" top={0} zIndex="10">
+            <Flex alignItems="center">
    
             {
                 links.map((link)=>(
@@ -72,6 +74,7 @@ function Navbar() {
             </Flex>
 
         </Box>
+       
     )
 }
 
