@@ -15,15 +15,19 @@ const links = [
 function Navbar2() {
   
     return(
-        <Center className = "navbar" borderBottom="1px solid gray" >
-            <Flex>
+        
+            <Flex justifyContent="center" border="1px solid gray" bg="white"  w="100%" position="fixed" top={10} zIndex="10"  >
+                
             {
                 links.map((link)=>(
+                  
                    <Text  p={2} ml={{ base: '10px', md: '20px', lg: '50px' }} fontSize={{ base: '10px', md: '12px', lg: '16px' }}><NavLink key={link.path} to={link.path}>{link.text}</NavLink></Text> 
+                   
                 ))
             }
+            
             </Flex>
-        </Center>
+       
     )
 }
 

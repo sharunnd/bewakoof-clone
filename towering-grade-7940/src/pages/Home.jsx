@@ -7,7 +7,7 @@ import {Box,SimpleGrid,Text,Image} from "@chakra-ui/react"
 
 function Home(){
     return (
-        <Box>
+        <Box position="relative" top={20}>
             <SimpleGrid columns={3} spacing={5}>
             <Image  src={img1} alt='image link broken' />
             <Image   src={img2} alt='image link broken' />
@@ -18,7 +18,7 @@ function Home(){
         <Image mt={5} src={img4} alt='image link broken' />
         </Box>
         <Box mt={5}>
-        <Text  fontSize='2xl' as='b'>TRENDING CATEGORIS</Text>
+        <Text  fontSize={{ base: 'sm', md: 'md', lg: '2xl' }} as='b'>TRENDING CATEGORIS</Text>
         <SimpleGrid columns={6} gap={5}>
            <Image  src="https://images.bewakoof.com/uploads/grid/app/category-box-new-Printed-Tshirt--1--1675842429.png" alt='image link broken' />
            <Image  src="https://images.bewakoof.com/uploads/grid/app/category-box-new-D-240x350-ovrszd-1676537032.jpg" alt='image link broken' />
@@ -37,7 +37,7 @@ function Home(){
         
         </Box>
         <Box mt={5}>
-        <Text  fontSize='2xl' as='b'>TOO HOT TO BE MISSED</Text>
+        <Text  fontSize={{ base: 'sm', md: 'md', lg: '2xl' }} as='b'>TOO HOT TO BE MISSED</Text>
         <SimpleGrid columns={2} gap={5}>
            <Image  src="https://images.bewakoof.com/uploads/grid/app/peanuts-x-snoopy-mid-new-1678791444.jpg" alt='image link broken' />
            <Image  src="https://images.bewakoof.com/uploads/grid/app/new-mid-banner-B3AT999-1679317081.jpg" alt='image link broken' />
@@ -48,7 +48,7 @@ function Home(){
         
         </Box>
         <Box mt={5}>
-        <Text  fontSize='2xl' as='b'>CATEGORIS TO BAG</Text>
+        <Text  fontSize={{ base: 'sm', md: 'md', lg: '2xl' }} as='b'>CATEGORIS TO BAG</Text>
         <SimpleGrid columns={6} gap={5}>
            <Image  src="https://images.bewakoof.com/uploads/grid/app/category-box-Jeans-men-1672915059.png" alt='image link broken' />
            <Image  src="https://images.bewakoof.com/uploads/grid/app/category-box-Shorts-Men-1678950685.png" alt='image link broken' />
@@ -69,7 +69,7 @@ function Home(){
         
         </Box>
         <Box mt={5}>
-        <Text  fontSize='2xl' as='b'>TOP ACCESSORIES</Text>
+        <Text  fontSize={{ base: 'sm', md: 'md', lg: '2xl' }} as='b'>TOP ACCESSORIES</Text>
         <SimpleGrid columns={6} gap={5}>
            <Image  src="https://images.bewakoof.com/uploads/grid/app/category-box-sliders-men-1672907494.png" alt='image link broken' />
            <Image  src="https://images.bewakoof.com/uploads/grid/app/category-box-Mobile-covers-1672907490.png" alt='image link broken' />
@@ -82,7 +82,7 @@ function Home(){
         
         </Box>
         <Box mt={5}>
-        <Text  fontSize='2xl' as='b'>OUR BEST PICKS</Text>
+        <Text  fontSize={{ base: 'sm', md: 'md', lg: '2xl' }} as='b'>OUR BEST PICKS</Text>
         <SimpleGrid columns={2} gap={5}>
            <Image  src="https://images.bewakoof.com/uploads/grid/app/new-mid-banner-ovrszd-srtwr-dresses-1675243399.jpg" alt='image link broken' />
            <Image  src="https://images.bewakoof.com/uploads/grid/app/new-mid-banner-2023-bts-new--1--1678448933.jpg" alt='image link broken' />
