@@ -16,7 +16,7 @@ function Navbar2() {
   
     return(
         
-            <Flex justifyContent="center" border="1px solid gray" bg="white"  w="100%" position="fixed" top={10} zIndex="10"  >
+            <Flex justifyContent="center" border="1px solid gray" bg="white"  w="100%" position="fixed" top={10} zIndex="1"  >
                 
             {
                 links.map((link)=>(
