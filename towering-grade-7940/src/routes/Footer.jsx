@@ -8,7 +8,7 @@ import img8 from "../footer-images/apple-store.png"
 
 function Footer(){
     return (
-        <Box bg="black" color="white">
+        <Box bg="black" color="white" position="relative" top={20}>
         <Heading color="yellow.400" fontSize={{ base: '12px', md: '20px', lg: '36px' }} textAlign="left" ml={{ base: '10px', md: '15px', lg: '90px' }} mt={{ base: '10px', md: '25px', lg: '50px' }}>Colorway</Heading>
 
          <Center>
