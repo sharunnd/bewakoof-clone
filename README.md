@@ -1,7 +1,7 @@
 # towering-grade-7940
 
 # Colorway (Bewakoof Website Clone)
-it is an online fashion and lifestyle E-commerce brand.
+it is an online fashion and lifestyle E-commerce website.
 
 # To visit my website Click on this link https://wondrous-starship-6605a1.netlify.app/
 
