@@ -6,11 +6,17 @@ o visit my website Click on this link https://wondrous-starship-6605a1.netlify.a
 NPM Packages used :-
 
 react react
+
 react-router-dom react-router-dom
+
 axios axios
+
 create-react-app
+
 react-icon
+
 React-redux
+
 Chakra-ui
 
 1. Landing Page
