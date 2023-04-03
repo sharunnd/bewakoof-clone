@@ -1,5 +1,7 @@
 # towering-grade-7940
 
+o Colorway (Bewakoof Website Clone) is an online fashion and lifestyle E-commerce brand.
+
 o visit my website Click on this link https://wondrous-starship-6605a1.netlify.app/
 
 
@@ -18,6 +20,16 @@ react-icon
 React-redux
 
 Chakra-ui
+
+o Tech stacks used in this project are as follows:-
+
+- HTML,CSS
+
+- JavaScript
+
+- React
+
+- Chakra UI
 
 1. Landing Page
 
