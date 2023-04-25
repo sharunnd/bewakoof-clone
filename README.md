@@ -3,7 +3,7 @@
 # Colorway (Bewakoof Website Clone)
 it is an online fashion and lifestyle E-commerce website.
 
-# To visit my website Click on this link https://wondrous-starship-6605a1.netlify.app/
+# To visit my website [Click here](https://wondrous-starship-6605a1.netlify.app/)
 
 
 # NPM Packages used :-
