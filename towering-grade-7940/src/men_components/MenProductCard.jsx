@@ -13,7 +13,7 @@ function MenProductCard({id,price,title,img}){
 
     function cartData (){
       let cart = {id,price,title,img};
-      axios.post("https://busy-tan-sockeye-hem.cyclic.app/cart",cart).then(()=>{
+      axios.post("https://json-mock-api-avnq.onrender.com/cart",cart).then(()=>{
         
         
       })

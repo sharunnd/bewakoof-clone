@@ -4,20 +4,20 @@ import axios from "axios"
 
 function getData(obj){
     
-    return axios.get(`https://busy-tan-sockeye-hem.cyclic.app/men`,{
+    return axios.get(`https://json-mock-api-avnq.onrender.com/men`,{
         params:obj
     })
 }
 
 function getCartData(){
     
-    return axios.get(`https://busy-tan-sockeye-hem.cyclic.app/cart`)
+    return axios.get(`https://json-mock-api-avnq.onrender.com/cart`)
 }
 
 
 const deleteWishlistItem=(id)=>{
    
-    return axios.delete(`https://busy-tan-sockeye-hem.cyclic.app/cart/${id}`)
+    return axios.delete(`https://json-mock-api-avnq.onrender.com/cart/${id}`)
         
  }
 
