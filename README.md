@@ -4,7 +4,7 @@
 # Colorway (Bewakoof Website Clone)
 Bewakoof is an online fashion and lifestyle E-commerce website.
 
-# To visit my website [Click here](https://wondrous-starship-6605a1.netlify.app/)
+# To visit my website [Click here](https://towering-grade-7940.vercel.app/)
 
 
 # NPM Packages used :-
