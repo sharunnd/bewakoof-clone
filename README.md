@@ -1,6 +1,3 @@
-# towering-grade-7940
-
-
 # Colorway (Bewakoof Website Clone)
 Bewakoof is an online fashion and lifestyle E-commerce website.
 
